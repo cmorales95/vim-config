@@ -1,14 +1,14 @@
 " init.vim 
 "
 " Created By: Cristian Morales
-" Created At: Apr 23
+" Created At: Apr 22
 " Updated At: Apr 23
 "
 " Links External Extension
 """ nvm: https://github.com/nvm-sh/nvm
-""" 
-
-
+""" vim sorround: https://github.com/tpope/vim-surround
+""" editor config: https://github.com/editorconfig/editorconfig-vim
+""" https://github.com/Yggdroot/indentLine
 
 syntax on
 
@@ -22,7 +22,7 @@ set tabstop=4 softtabstop=4	" representation of a tab
 set shiftwidth=4		" no idea
 set expandtab			" tab using < >
 set smartindent         " use a righ indentation allow to programming languages
-set nohlsearch          " when you search and found a result, you press enter and the value that you selected before will be highlighting
+set hlsearch            " highlight search
 set hidden              
 set noerrorbells
 set nowrap
@@ -32,7 +32,7 @@ set scrolloff=8         " locate the cursor 8 spaces
 " set colorcolumn=80    " add a red line representing a limit in the file
 set signcolumn=yes      " this is used by linters, we have an extra column the the right to see the errors in a better way
 set cmdheight=2         " give more space for displaying messages
-set showmatch           " show the pair () {} []
+set showmatch           
 set nobackup
 set nowritebackup
 
@@ -51,18 +51,32 @@ Plug 'preservim/nerdtree'
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'                 " TODO: Pending configuration
 Plug 'jiangmiao/auto-pairs'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}     " Like VSCode
+Plug 'easymotion/vim-easymotion'
+Plug 'yggdroot/indentline'
+Plug 'preservim/nerdcommenter'
+
+
 "" Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-pyright coc-go
+Plug 'sirver/utilsnips'                 " Create snippets
+Plug 'editorconfig/editorconfig-vim'    " Read .editorconfig file and applied the rules
 
 " git
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'           " TODO: Pending configuration
 
+" html
+Plug 'alvan/vim-closetag'   " Close Tag Html
+Plug 'tpope/vim-sorround'   " take a workd and encapsule into a tag 
+
+" tmux
+Plug 'preservim/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -73,7 +87,6 @@ colorscheme gruvbox
 """ NerdTree
 let NERDTreeQuitOnOpen=1			" Quit when you choose a file
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
 
 
 " Key Maps Configuration
@@ -87,17 +100,27 @@ nmap <Leader>pi :PlugInstall<Enter>
 "" Custom Keys
 
 "" IDE
+""" Navigation
+map <Leader>p :tabprevious<cr>
+map <Leader>n :tabnext<cr>
+map <Leader>ob :Buffers<cr>
+
 """ NerdTree
-nnoremap <Leader>n :NERDTreeFind<CR>
+map <Leader>nt :NERDTreeFind<CR>
 
 """ fzf.vim
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
-nnoremap <Leader>f :Files<CR>
+map <Leader>ff :Files<CR>
+map <Leader>ag :Ag<CR>
 
 """ vim-gitgutter
 " nmap ]h <Plug>(GitGutterNextHunk)
 " nmap [h <Plug>(GitGutterPrevHunk)
+
+
+""" easymotion
+nmap <Leader>; <Plug>(easymotion-s2)
 
 """ vim fugitive
 map <Leader>gb :GBlame
