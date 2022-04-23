@@ -1,14 +1,15 @@
 " init.vim 
 "
 " Created By: Cristian Morales
-" Created At: Apr 22
-" Updated At: Apr 23
+" Created At: Apr 21
+" Updated At: Apr 22
 "
 " Links External Extension
 """ nvm: https://github.com/nvm-sh/nvm
 """ vim sorround: https://github.com/tpope/vim-surround
 """ editor config: https://github.com/editorconfig/editorconfig-vim
-""" https://github.com/Yggdroot/indentLine
+""" indent line guide: https://github.com/Yggdroot/indentLine
+""" sorround into a tag: https://github.com/tpope/vim-surround
 
 syntax on
 
@@ -61,7 +62,7 @@ Plug 'preservim/nerdcommenter'
 
 "" Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-Plug 'sirver/utilsnips'                 " Create snippets
+Plug 'SirVer/ultisnips'
 Plug 'editorconfig/editorconfig-vim'    " Read .editorconfig file and applied the rules
 
 " git
@@ -70,13 +71,15 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'           " TODO: Pending configuration
 
-" html
-Plug 'alvan/vim-closetag'   " Close Tag Html
-Plug 'tpope/vim-sorround'   " take a workd and encapsule into a tag 
-
 " tmux
 Plug 'preservim/vimux'
 Plug 'christoomey/vim-tmux-navigator'
+
+" html
+Plug 'alvan/vim-closetag'   " Close Tag Html
+Plug 'tpope/vim-surround'
+
+
 
 call plug#end()
 
@@ -146,3 +149,14 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+""" NerdCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+
