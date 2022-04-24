@@ -1,16 +1,3 @@
-" init.vim 
-"
-" Created By: Cristian Morales
-" Created At: Apr 21
-" Updated At: Apr 22
-"
-" Links External Extension
-""" nvm: https://github.com/nvm-sh/nvm
-""" vim sorround: https://github.com/tpope/vim-surround
-""" editor config: https://github.com/editorconfig/editorconfig-vim
-""" indent line guide: https://github.com/Yggdroot/indentLine
-""" sorround into a tag: https://github.com/tpope/vim-surround
-
 syntax on
 
 set encoding=UTF-8
