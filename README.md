@@ -1,11 +1,11 @@
-" init.vim 
+#init.vim 
 Create a file into: ~/.config/nvim/init.vim
 
-*****Created By**: Cristian Morales
+Created By**: Cristian Morales
 **Created At**: Apr 21
 **Updated At**: Apr 22
 
-"" Links External Extension
+##Links External Extension
 Please, install this extensions before installing plugins
 
 - nvm: https://github.com/nvm-sh/nvm
@@ -15,4 +15,5 @@ Please, install this extensions before installing plugins
 - vim sorround: https://github.com/tpope/vim-surround
 - editor config: https://github.com/editorconfig/editorconfig-vim
 - indent line guide: https://github.com/Yggdroot/indentLine
+- go: https://github.com/fatih/vim-go
 

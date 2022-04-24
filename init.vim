@@ -66,6 +66,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'alvan/vim-closetag'   " Close Tag Html
 Plug 'tpope/vim-surround'
 
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 
 call plug#end()
@@ -91,8 +93,8 @@ nmap <Leader>pi :PlugInstall<Enter>
 
 "" IDE
 """ Navigation
-map <Leader>p :tabprevious<cr>
-map <Leader>n :tabnext<cr>
+map <Leader>p :tabprevious<Enter>
+map <Leader>n :tabnext<Enter>
 map <Leader>ob :Buffers<cr>
 
 """ NerdTree
@@ -145,5 +147,4 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
-
 
